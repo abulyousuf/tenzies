@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Die from "./Die";
 import "./style.css";
@@ -23,6 +23,12 @@ const App = () => {
   };
 
   const [dice, setDice] = useState(allNewDice());
+  const [tenzies, setTenzies] = useState(false);
+
+  // syncing 2 internal states together
+  useEffect(() => {
+    console.log("Dice state changed!");
+  }, [dice]);
 
   const rollDice = () => {
     setDice(oldDice =>
