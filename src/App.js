@@ -27,7 +27,14 @@ const App = () => {
 
   // syncing 2 internal states together
   useEffect(() => {
-    console.log("Dice state changed!");
+    const allHeldDice = dice.every(die => die.isHeld);
+    const firstValue = dice[0].value;
+    const allSameValue = dice.every(die => die.value === firstValue);
+
+    if (allHeldDice && allSameValue) {
+      setTenzies(true);
+      console.log("You won!");
+    }
   }, [dice]);
 
   const rollDice = () => {
