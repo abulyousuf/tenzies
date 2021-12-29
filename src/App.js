@@ -4,15 +4,19 @@ import Die from "./Die";
 import "./style.css";
 
 const App = () => {
+  const generateNewDie = () => {
+    return {
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      id: nanoid(),
+    };
+  };
+
   const allNewDice = () => {
     const newDice = [];
 
     for (let i = 0; i < 10; i++) {
-      newDice.push({
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false,
-        id: nanoid(),
-      });
+      newDice.push(generateNewDie());
     }
 
     return newDice;
@@ -22,11 +26,7 @@ const App = () => {
 
   const rollDice = () => {
     setDice(oldDice =>
-      oldDice.map(die =>
-        die.isHeld
-          ? die
-          : { ...die, value: Math.ceil(Math.random() * 6), id: nanoid() }
-      )
+      oldDice.map(die => (die.isHeld ? die : generateNewDie()))
     );
   };
 
