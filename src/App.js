@@ -33,8 +33,7 @@ const App = () => {
       key={die.id}
       value={die.value}
       isHeld={die.isHeld}
-      id={die.id}
-      holdDice={holdDice}
+      holdDice={() => holdDice(die.id)}
     />
   ));
 
