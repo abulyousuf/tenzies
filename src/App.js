@@ -21,7 +21,13 @@ const App = () => {
   const [dice, setDice] = useState(allNewDice());
 
   const rollDice = () => {
-    setDice(allNewDice());
+    setDice(oldDice =>
+      oldDice.map(die =>
+        die.isHeld
+          ? die
+          : { ...die, value: Math.ceil(Math.random() * 6), id: nanoid() }
+      )
+    );
   };
 
   const holdDice = id => {
