@@ -28,7 +28,7 @@ main {
 }
 
 .die-face {
-  background-color: #fff;
+  /* background-color: #fff; */
   height: 50px;
   width: 50px;
   border-radius: 10px;
