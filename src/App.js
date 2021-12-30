@@ -39,9 +39,14 @@ const App = () => {
   }, [dice]);
 
   const rollDice = () => {
-    setDice(oldDice =>
-      oldDice.map(die => (die.isHeld ? die : generateNewDie()))
-    );
+    if (!tenzies) {
+      setDice(oldDice =>
+        oldDice.map(die => (die.isHeld ? die : generateNewDie()))
+      );
+    } else {
+      setTenzies(false);
+      setDice(allNewDice());
+    }
   };
 
   const holdDice = id => {
