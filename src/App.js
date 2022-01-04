@@ -34,7 +34,6 @@ const App = () => {
 
     if (allHeldDice && allSameValue) {
       setTenzies(true);
-      console.log("You won!");
     }
   }, [dice]);
 
@@ -69,6 +68,7 @@ const App = () => {
   return (
     <main>
       {tenzies && <Confetti />}
+      {tenzies && <div className="won">You won!</div>}
       <h1 className="title">Tenzies</h1>
       <p className="instructions">
         Roll until all dice are the same. Click each die to freeze it at its
