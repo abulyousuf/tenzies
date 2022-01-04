@@ -5,9 +5,13 @@
 }
 
 body {
+  height: 100vh;
   font-family: "Karla", sans-serif;
   background-color: #0b2434;
-  padding: 20px;
+  /* padding: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
@@ -29,6 +33,7 @@ main {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   text-align: center;
+  padding: 0 1em;
 }
 
 .dice-container {
